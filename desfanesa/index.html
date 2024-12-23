@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Just For You ❤️</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.4/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://files.dariku.my.id/dkp204ppr/s.css" />
+  </head>
+  <body>
+    <script src="https://files.dariku.my.id/dkp204ppr/s.js"></script>
+    <div class="content2">
+      <div class="paper-container">
+        <button id="wa">Kirim Pesan</button>
+      </div>
+    </div>
+    <script>
+      text1 = "Happy";
+      text2 = "Special Day";
+
+      foto = "gambar0.jpg";
+
+      konten = [
+        {
+          gambar: "https://dekatutorial.github.io/v/stkr/Stiker 16.gif",
+          ucapan: "hallo sayang 👋",
+        },
+        {
+          gambar: "File gambar",
+          ucapan: "coba tebak siapa yang hari ini ulang tahun?",
+        },
+        {
+          gambar: "File gambar",
+          ucapan: "yeahh betul kamu",
+        },
+        {
+          gambar: "File gambar",
+          ucapan: "happy birthday ke-19 seng ❤️",
+        },
+        {
+          gambar: "gambar1.jpg",
+          ucapan: "happy birthday ke-19 seng ❤️",
+        },
+        {
+          gambar: "gambar2.jpg",
+          ucapan: "happy birthday ke-19 seng ❤️",
+        },
+        {
+          gambar: "gambar3.jpg",
+          ucapan: "happy birthday ke-19 seng ❤️",
+        },
+      ];
+
+      textPaper = `Ucapan panjang
+      fdgkjbsifbiodshfoisdhiofhsdigfiudgigudhiohsiohdiohiofhisdhovniudshoidhfosifhiskdhfioshoihdoisf sdfiosdhfoisdhfiosdovds sdhoshiovihsdov oihsdvhisodvshdfihdsihfksdfkhsdklfhsdkfhksdhfsdhfosdhif`;
+
+      linkGoogleForm = "https://docs.google.com/forms/d/e/1FAIpQLSc0oKj2S4mvBNZsrZ87kKv9fQN3zaLCBzSIsOWp4EpJHnysxw/viewform?usp=header";
+
+      musik = "https://dekatutorial.github.io/musik/HAPPY%20BIRTHDAY%20INSTRUMENTAL%20(Piano%20&%20Sax%20-%20Happy%20Birthday%20to%20You%20by%20happysongchannel).mp3";
+
+      var swalo = Swal.mixin({ allowOutsideClick: false, reverseButtons: true });
+      async function kirimPesan() {
+        klikA.play();
+        if (linkGoogleForm == "") {
+          var { value: pesan } = await swalo.fire({ title: "Tulis pesan", input: "textarea", confirmButtonText: "Kirim" });
+
+          klikA.play();
+          if (pesan) {
+            await swalo.fire({ title: "Kirim pesannya ke wa aku ya" });
+            location.assign(`https://wa.me/?text=${pesan}`);
+          } else {
+            await swalo.fire({ confirmButtonText: "Iya deh", title: "Jangan dikosongin ya :)" });
+            kirimPesan();
+          }
+        } else {
+          location.assign(linkGoogleForm);
+        }
+      }
+
+      DekaTutorial(konten, musik, text1, text2, foto, linkGoogleForm, textPaper, kirimPesan);
+    </script>
+  </body>
+</html>
